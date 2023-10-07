@@ -9,6 +9,9 @@ library(lubridate)
 library(anytime)
 library(readr)
 library(yaml)
+#Add these as well
+library(tidyr)
+library(tibble)
 
 #### 1: Beginning of script
 
@@ -62,7 +65,9 @@ stations_metadata_df %>%
   transform_volumes() %>% 
   ggplot(aes(x=from, y=volume)) + 
   geom_line() + 
-  theme_classic()
+  theme_classic() +
+  #Task 6 - Add titles
+  labs(title = paste("Station: ", stations_metadata_df$id), x = "Date", y = "Volume")
 
 
 
